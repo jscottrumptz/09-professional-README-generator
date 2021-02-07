@@ -1,8 +1,9 @@
 // Packages needed for this application
 const inquirer = require('inquirer');
+const generateReadme = require('./src/readme-template.js');
+const writeToFile = require('./utils/writeToFile.js');
 
-// TODO: Create an array of questions for user input
-// const questions = [];
+//Create an array of questions for user input
 const promptUser = () => {
     return inquirer.prompt([
     {
@@ -27,6 +28,19 @@ const promptUser = () => {
                 return true;
             } else {
                 console.log('Your GitHub username is required');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'userEmail',
+        message: 'What is a good contact email for questions? (Required)',
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log('Your email is required');
                 return false;
             }
         }
@@ -124,7 +138,7 @@ const promptInstall = readmeData => {
             name: 'confirmAddStep',
             message: 'Is there another step needed for installation?',
             default: false
-        },
+        }
     ])
     .then(stepData => {
         // push data into the array
@@ -138,7 +152,7 @@ const promptInstall = readmeData => {
             return readmeData;
         }
     });
-}
+};
 
 const promptUsage = readmeData => {
     if (!readmeData.usage) {
@@ -150,14 +164,69 @@ const promptUsage = readmeData => {
             type: 'confirm',
             name: 'confirmLink',
             message: 'Do you have a deployed link?',
-            default: false
+            default: true
           },
           {
             type: 'input',
-            name: 'usageLink',
+            name: 'link',
             message: 'Enter link to deployed application: ',
             when: ({ confirmLink }) => {
                 if (confirmLink) {
+                  return true;
+                } else {
+                  return false;
+                }
+            }
+        },
+        {
+            type: 'confirm',
+            name: 'confirmScrnSht',
+            message: 'Do you have a screenshot of the application?',
+            default: false
+        },
+        {
+            type: 'input',
+            name: 'scrnSht',
+            message: 'Enter the image path: ',
+            when: ({ confirmScrnSht }) => {
+                if (confirmScrnSht) {
+                  return true;
+                } else {
+                  return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'instructions',
+            message: 'Provide usage instructions and examples for use: ',
+            validate: usageInput => {
+                if (usageInput) {
+                    return true;
+                } else {
+                    console.log('Usage instructions are required.');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'list',
+            name: 'license',
+            message: 'Please select a license type.',
+            choices: ['GPLv3', 'GPLv2', 'MIT', 'BSD 3-clause', 'BSD 2-clause', 'Apache License 2.0']
+        },
+        {
+            type: 'confirm',
+            name: 'confirmContribute',
+            message: 'Would you like other developers to contribute?',
+            default: true
+        },
+        {
+            type: 'input',
+            name: 'contributing',
+            message: 'Leave blank to use The Contributor Covenant, or write your own guidelines for how to contribute here: ',
+            when: ({ confirmContribute }) => {
+                if (confirmContribute) {
                   return true;
                 } else {
                   return false;
@@ -169,22 +238,20 @@ const promptUsage = readmeData => {
         readmeData.usage.push(usageData);
         return readmeData;
     });
-}
+};
 
 const promptCredits = readmeData => {
+
+    if (!readmeData.collaborators) {
+        readmeData.collaborators = [];
+    }
+
     return inquirer.prompt([
     {
         type: 'confirm',
         name: 'confirmCredits',
-        message: 'Do you need to recognize collaborators for your project?',
+        message: 'Do you need to recognize another collaborator?',
         default: false,
-        when: ({ confirmCredits }) => {
-            if (confirmCredits) {
-              return false;
-            } else {
-              return true;
-            }
-        }
       },
     {
         type: 'input',
@@ -201,7 +268,7 @@ const promptCredits = readmeData => {
     {
         type: 'input',
         name: 'collabGitHub',
-        message: 'Colaborator GitHub profile link: ',
+        message: 'Collaborator GitHub profile name: ',
         when: ({ confirmCredits }) => {
             if (confirmCredits) {
               return true;
@@ -210,22 +277,254 @@ const promptCredits = readmeData => {
             }
         }
     }
-  ]);
+  ])
+  .then(collabData => {
+    // push data into the array
+    readmeData.collaborators.push(collabData);
+        // check if they want to add another step
+        if (collabData.confirmCredits) {
+            // if so, call the function again passing the array back through the function
+            return promptCredits(readmeData);
+        } else {
+            // return the array
+            return readmeData;
+        }
+    });
 };
 
-// TODO: Create a function to write README file
-// TODO: Auto-Generate a Table of Contents. No need to ask.
-function writeToFile(fileName, data) {}
+const promptFeatures = readmeData => {
+    if (!readmeData.features) {
+        readmeData.features = [];
+    }
 
-// TODO: Create a function to initialize app
+    return inquirer.prompt([
+    {
+        type: 'confirm',
+        name: 'confirmFeature',
+        message: 'Would you like to list a feature?',
+        default: false,
+      },
+    {
+        type: 'input',
+        name: 'featureName',
+        message: 'Feature name: ',
+        when: ({ confirmFeature }) => {
+            if (confirmFeature) {
+              return true;
+            } else {
+              return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'featureDescription',
+        message: 'Describe the feature: ',
+        when: ({ confirmFeature }) => {
+            if (confirmFeature) {
+              return true;
+            } else {
+              return false;
+            }
+        }
+    }
+  ])
+  .then(featureData => {
+    // push data into the array
+    readmeData.features.push(featureData);
+        // check if they want to add another step
+        if (featureData.confirmFeature) {
+            // if so, call the function again passing the array back through the function
+            return promptFeatures(readmeData);
+        } else {
+            // return the array
+            return readmeData;
+        }
+    });
+};
+
+const promptTests = readmeData => {
+    if (!readmeData.tests) {
+        readmeData.tests = [];
+    }
+
+    return inquirer.prompt([
+    {
+        type: 'confirm',
+        name: 'confirmTest',
+        message: 'Would you like to include a test for your application?',
+        default: false,
+      },
+    {
+        type: 'input',
+        name: 'test',
+        message: 'Write test: ',
+        when: ({ confirmTest }) => {
+            if (confirmTest) {
+              return true;
+            } else {
+              return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'testExample',
+        message: 'Provide and example of how to run it: ',
+        when: ({ confirmTest }) => {
+            if (confirmTest) {
+              return true;
+            } else {
+              return false;
+            }
+        }
+    }
+  ])
+  .then(testData => {
+    // push data into the array
+    readmeData.tests.push(testData);
+        // check if they want to add another step
+        if (testData.confirmTest) {
+            // if so, call the function again passing the array back through the function
+            return promptTests(readmeData);
+        } else {
+            // return the array
+            return readmeData;
+        }
+    });
+};
+
+//Create a function to initialize app
 function init() {
     promptUser()
     .then(promptInstall)
     .then(promptUsage)
-    .then(readmeData => console.log(readmeData))
-    //.then(promptCredits)
-    //.then(answers => console.log(answers));
+    .then(promptCredits)
+    .then(promptFeatures)
+    .then(promptTests)
+    .then(readmeData => {
+        return generateReadme(readmeData);
+    })
+    .then(pageMarkdown => {
+        return writeToFile(pageMarkdown);
+    })
+    .catch(err => {
+        console.log(err);
+    });
 }
 
-// Function call to initialize app
-init();
+//// Function call to initialize app
+// init();
+
+
+
+///// DELETE BELOW /////
+
+const mockData = {
+    userName: 'J Scott Rumptz',
+    userGithub: 'jscottrumptz',
+    userEmail: 'jscott@rumptz.tech',
+    repoName: 'date-night-generator',
+    projTitle: 'Date Night Generator',
+    projDescription: 'Get suggestions for great movie, meal and drink combinations and save your favorite groupings to a date night queue.',
+    installSteps: [
+      {
+        title: 'Open Browser',
+        description: 'Open your favorite web browser on your phone, tablet, or computer.',
+        optional: false,
+        confirmAddStep: true
+      },
+      {
+        title: 'Navigate to the Webpage',
+        description: 'Enter https://jscottrumptz.github.io/date-night-generator/ in the address bar.',
+        optional: false,
+        confirmAddStep: true
+      },
+      {
+        title: 'Grab a Partner',
+        description: 'Call your significant other over to assist in the process.',
+        optional: true,
+        confirmAddStep: false
+      }
+    ],
+    usage: [
+      {
+        confirmLink: true,
+        link: 'https://jscottrumptz.github.io/date-night-generator/',
+        confirmScrnSht: true,
+        scrnSht: 'https://user-images.githubusercontent.com/74981245/106368421-efdf1a80-630e-11eb-938c-a2f3f6249f80.png',
+        instructions: 'Select by category and hit the replace and hit "Replace" to generate a random movie, meal, or drink selection. Keep hitting "Replace" until you find a suggestion you like, then move on to another item. After putting together a suitable trio, hit "Save Current Picks" to add them permanently to your Date Night Queue!',
+        license: 'GPLv3',
+        confirmContribute: true,
+        contributing: ''
+      }
+    ],
+    collaborators: [
+      {
+        confirmCredits: true,
+        collaborator: 'Cheryl Fogerty',
+        collabGitHub: 'CherylFogerty'
+      },
+      {
+        confirmCredits: true,
+        collaborator: 'Jared Taylor',
+        collabGitHub: 'jmtaylor115'
+      },
+      {
+        confirmCredits: true,
+        collaborator: 'Sean Johnson',
+        collabGitHub: 'seanjohnson95'
+      },
+      { confirmCredits: false }
+    ],
+    features: [
+      {
+        confirmFeature: true,
+        featureName: 'Get Random Suggestions',
+        featureDescription: 'Get random movie, meal and drink suggestions based on genres, categories, or countries.'
+      },
+      {
+        confirmFeature: true,
+        featureName: 'Featured Item View',
+        featureDescription: 'Displays the most pertinent information in the featured item view.'
+      },
+      {
+        confirmFeature: true,
+        featureName: 'Detail View',
+        featureDescription: 'Drill down to a detail view for recipe instructions or videos.'
+      },
+      {
+        confirmFeature: true,
+        featureName: 'Printer Friendly',
+        featureDescription: 'In detail view, print the recipes with only text to be printer-ink-friendly.'
+      },
+      {
+        confirmFeature: true,
+        featureName: 'Save the Date',
+        featureDescription: 'Save all items in the featured view as a date night and place them in the Date Night Queue.'
+      },
+      {
+        confirmFeature: true,
+        featureName: 'Date Night Queue',
+        featureDescription: "Add or delete date nights from the user's local storage. Clicking previously saved date nights repopulates the featured item view with their details."
+      },
+      {
+        confirmFeature: true,
+        featureName: 'Responsive',
+        featureDescription: 'The application is responsive and mobile friendly.'
+      },
+      { confirmFeature: false }
+    ],
+    tests: [
+      {
+        confirmTest: true,
+        test: 'Visit the application generate and execute a random date-night.',
+        testExample: 'Go to the website. Generate a random date-night. Execute the date-night. Enjoy yourselves. Repeat.'
+      },
+      { confirmTest: false }
+    ]
+};
+
+const markdownTest = generateReadme(mockData);
+writeToFile(markdownTest);
+console.log(mockData);
