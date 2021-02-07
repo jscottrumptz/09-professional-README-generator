@@ -1,57 +1,28 @@
 // create the credits section
-const generateCredits = aboutText => {
-    if (!aboutText) {
-        return '';
-    }
-
-    return `
-        <section class="my-3" id="about">
-            <h2 class="text-dark bg-primary p-2 display-inline-block">About Me</h2>
-            <p>${aboutText}</p>
-        </section>
-    `;
+const generateCredits = collabData => {
+    // filter by confirmConfirm credits and add collaborator info if needed
+    return `${collabData.filter(({ confirmCredits }) => confirmCredits)
+                .map(({ collaborator, collabGitHub }) => {
+                    return ` / [${collaborator}](https://github.com/${collabGitHub})`;
+                })
+                .join('')}`;
 }
 
 // generate installation steps
 const generateInstall = stepsArr => {
-    return `
-        <section class="my-3" id="portfolio">
-            <h2 class="text-dark bg-primary p-2 display-inline-block">Work</h2>
-            <div class="flex-row justify-space-between">
-                ${stepsArr.filter(({ optional }) => optional)
-                .map(({ name, description, languages, link }) => {
-                    return `
-                        <div class="col-12 mb-2 bg-dark text-light p-3">
-                            <h3 class="portfolio-item-title text-light">${name}</h3>
-                            <h5 class="portfolio-languages">
-                                Built With:
-                                ${languages.join(', ')}
-                            </h5>
-                            <p>${description}</p>
-                            <a href="${link}" class="btn"><i class="fab fa-github mr-2"></i>View Project on GitHub</a>
-                        </div>
-                    `;
+    let step = 0;
+    isOptional = ``;
+    return `${stepsArr.map(({ title, description, optional }) => {
+                    step++;
+                    if (!optional) {
+                        isOptional = ``
+                    } else {
+                        isOptional = ` (*Optinal*)`;
+                    }
+                    return `- Step ${step}) **${title}**${isOptional} - ${description};
+`;
                 })
-                .join('')}
-        
-                ${stepsArr.filter(({ optional }) => !optional)
-                .map(({ name, description, languages, link }) => {
-                    return `
-                        <div class="col-12 col-md-6 mb-2 bg-dark text-light p-3 flex-column">
-                            <h3 class="portfolio-item-title text-light">${name}</h3>
-                            <h5 class="portfolio-languages">
-                                Built With:
-                                ${languages.join(', ')}
-                            </h5>
-                            <p>${description}</p>
-                            <a href="${link}" class="btn mt-auto"><i class="fab fa-github mr-2"></i>View Project on GitHub</a>
-                        </div>
-                    `;
-                })
-                .join('')}
-            </div>
-        </section>
-    `;
+                .join('')}`;
 };
 
 module.exports = data => {
@@ -59,17 +30,14 @@ module.exports = data => {
     // destructure data based on property key names and dump the rest in project
     const { installSteps, usage, collaborators, features, tests, ...project } = data;
 
-    return `
-# ${project.projTitle}
-
-## Description
-
+    return `# ${project.projTitle}
 ![GitHub repo size](https://img.shields.io/github/repo-size/${project.userGithub}/${project.repoName}) 
 ![GitHub all releases](https://img.shields.io/github/downloads/${project.userGithub}/${project.repoName}/total)
 ![GitHub issues](https://img.shields.io/github/issues-raw/${project.userGithub}/${project.repoName})
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/${project.userGithub}/${project.repoName})
 ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/${project.userGithub}/${project.repoName})
 
+## Description
 
 ${project.projDescription}  
 
@@ -86,9 +54,7 @@ $ {tableOfContents()}
 
 ## Installation
 
-$ {generateInstall(installSteps)}
-
-
+${generateInstall(installSteps)}
 ## Usage 
 
 ${usage[0].link}
@@ -97,17 +63,12 @@ ${usage[0].link}
 
 ${usage[0].instructions}
 
-
 ## Credits
+Made with ❤️ by [${project.userName}](https://github.com/${project.userGithub}/)${generateCredits(collaborators)}
 
-$ {generateCredits(collaborators)}
+### ©️${new Date().getFullYear()} ${project.userName}
 
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
-
+## Built With
 
 ## License
 
@@ -134,9 +95,15 @@ If your project has a lot of features, consider adding a heading called "Feature
 
 If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
 
+
+## Questions
+
+How to contact me with questions about the project
+
+
 ## Tests
 
 Go the extra mile and write tests for your application. Then provide examples on how to run them.
 
-    `;
+`;
 };

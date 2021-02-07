@@ -527,4 +527,3 @@ const mockData = {
 
 const markdownTest = generateReadme(mockData);
 writeToFile(markdownTest);
-console.log(mockData);

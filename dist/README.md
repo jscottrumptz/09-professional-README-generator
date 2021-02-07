@@ -1,14 +1,11 @@
-
 # Date Night Generator
-
-## Description
-
 ![GitHub repo size](https://img.shields.io/github/repo-size/jscottrumptz/date-night-generator) 
 ![GitHub all releases](https://img.shields.io/github/downloads/jscottrumptz/date-night-generator/total)
 ![GitHub issues](https://img.shields.io/github/issues-raw/jscottrumptz/date-night-generator)
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/jscottrumptz/date-night-generator)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/jscottrumptz/date-night-generator)
 
+## Description
 
 Get suggestions for great movie, meal and drink combinations and save your favorite groupings to a date night queue.  
 
@@ -25,8 +22,9 @@ $ {tableOfContents()}
 
 ## Installation
 
-$ {generateInstall(installSteps)}
-
+- Step 1) **Open Browser** - Open your favorite web browser on your phone, tablet, or computer.;
+- Step 2) **Navigate to the Webpage** - Enter https://jscottrumptz.github.io/date-night-generator/ in the address bar.;
+- Step 3) **Grab a Partner** (*Optinal*) - Call your significant other over to assist in the process.;
 
 ## Usage 
 
@@ -36,17 +34,12 @@ https://jscottrumptz.github.io/date-night-generator/
 
 Select by category and hit the replace and hit "Replace" to generate a random movie, meal, or drink selection. Keep hitting "Replace" until you find a suggestion you like, then move on to another item. After putting together a suitable trio, hit "Save Current Picks" to add them permanently to your Date Night Queue!
 
-
 ## Credits
+Made with ❤️ by [J Scott Rumptz](https://github.com/jscottrumptz/) / [Cheryl Fogerty](https://github.com/CherylFogerty) / [Jared Taylor](https://github.com/jmtaylor115) / [Sean Johnson](https://github.com/seanjohnson95)
 
-$ {generateCredits(collaborators)}
+### ©️2021 J Scott Rumptz
 
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
-
+## Built With
 
 ## License
 
@@ -73,8 +66,13 @@ If your project has a lot of features, consider adding a heading called "Feature
 
 If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
 
+
+## Questions
+
+How to contact me with questions about the project
+
+
 ## Tests
 
 Go the extra mile and write tests for your application. Then provide examples on how to run them.
 
-    
