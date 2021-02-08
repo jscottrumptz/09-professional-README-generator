@@ -71,6 +71,20 @@ const generateFeatures = featuresArr => {
                 .join('')}`;
 };
 
+// generate the contribution section
+const generateContribute = (usageArr, projArray) => {
+    // if the user selects no contributions
+    if(!usageArr[0].confirmContribute) {
+        return 'This project is not currently seeking contributions';
+    }
+    // if the user leaves blank to signify they want to use the contributor covenant
+    if(usageArr[0].contributing === '') {
+        return `This project operates under the [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). For more information see the [Contributer Covenant FAQ](https://www.contributor-covenant.org/faq/) or contact [${projArray.userName}](mailto:${projArray.userEmail}?subject=Contribution%20question%20concerning%20${projArray.repoName}) with any additional questions or comments.`;
+    }
+    // otherwise use the users input
+    return `${usageArr[0].contributing}`
+};
+
 module.exports = data => {
 
     // destructure data based on property key names and dump the rest in project
@@ -80,10 +94,10 @@ module.exports = data => {
     
 ![GitHub Repo stars](https://img.shields.io/github/stars/${project.userGithub}/${project.repoName}?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/${project.userGithub}/${project.repoName}?style=social)
-
 ![GitHub repo size](https://img.shields.io/github/repo-size/${project.userGithub}/${project.repoName})
 ![GitHub language count](https://img.shields.io/github/languages/count/${project.userGithub}/${project.repoName})
 ![GitHub top language](https://img.shields.io/github/languages/top/${project.userGithub}/${project.repoName})
+
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/${project.userGithub}/${project.repoName})
 ![GitHub last commit](https://img.shields.io/github/last-commit/${project.userGithub}/${project.repoName})
 ![GitHub issues](https://img.shields.io/github/issues-raw/${project.userGithub}/${project.repoName})
@@ -125,7 +139,7 @@ ${generateFeatures(features)}
 ## Contributing
 ![GitHub contributors](https://img.shields.io/github/contributors/${project.userGithub}/${project.repoName})
 
-This project operates under the [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). For more information see the [Contributer Covenant FAQ](https://www.contributor-covenant.org/faq/) or contact [${project.userEmail}](mailto:${project.userEmail}) with any additional questions or comments. 
+${generateContribute(usage, project)}
 
 ---
 ## Questions

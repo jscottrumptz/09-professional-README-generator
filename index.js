@@ -176,7 +176,15 @@ const promptUsage = readmeData => {
                 } else {
                   return false;
                 }
-            }
+            },
+            validate: link => {
+              if (link) {
+                  return true;
+              } else {
+                  console.log('Please enter a link to deployed application');
+                  return false;
+              }
+          }
         },
         {
             type: 'confirm',
@@ -194,7 +202,15 @@ const promptUsage = readmeData => {
                 } else {
                   return false;
                 }
-            }
+            },
+            validate: scrnSht => {
+              if (scrnSht) {
+                  return true;
+              } else {
+                  console.log('Please enter the image path');
+                  return false;
+              }
+          }
         },
         {
             type: 'input',

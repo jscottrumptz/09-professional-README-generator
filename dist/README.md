@@ -2,10 +2,10 @@
     
 ![GitHub Repo stars](https://img.shields.io/github/stars/jscottrumptz/date-night-generator?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/jscottrumptz/date-night-generator?style=social)
-
 ![GitHub repo size](https://img.shields.io/github/repo-size/jscottrumptz/date-night-generator)
 ![GitHub language count](https://img.shields.io/github/languages/count/jscottrumptz/date-night-generator)
 ![GitHub top language](https://img.shields.io/github/languages/top/jscottrumptz/date-night-generator)
+
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/jscottrumptz/date-night-generator)
 ![GitHub last commit](https://img.shields.io/github/last-commit/jscottrumptz/date-night-generator)
 ![GitHub issues](https://img.shields.io/github/issues-raw/jscottrumptz/date-night-generator)
@@ -60,7 +60,7 @@ Select by category and hit "Replace" to generate a random movie, meal, or drink 
 ## Contributing
 ![GitHub contributors](https://img.shields.io/github/contributors/jscottrumptz/date-night-generator)
 
-This project operates under the [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). For more information see the [Contributer Covenant FAQ](https://www.contributor-covenant.org/faq/) or contact [jscott@rumptz.tech](mailto:jscott@rumptz.tech) with any additional questions or comments. 
+This project operates under the [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). For more information see the [Contributer Covenant FAQ](https://www.contributor-covenant.org/faq/) or contact [J Scott Rumptz](mailto:jscott@rumptz.tech?subject=Contribution%20question%20concerning%20date-night-generator) with any additional questions or comments.
 
 ---
 ## Questions
