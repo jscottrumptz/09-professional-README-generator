@@ -1,25 +1,71 @@
-// create the credits section
-const generateCredits = collabData => {
-    // filter by confirmConfirm credits and add collaborator info if needed
-    return `${collabData.filter(({ confirmCredits }) => confirmCredits)
+// generate the collaborators in the credits section
+const generateCollabCredits = collabArr => {
+    // filter by confirmCredits credits and add collaborator info if needed
+    return `${collabArr.filter(({ confirmCredits }) => confirmCredits)
                 .map(({ collaborator, collabGitHub }) => {
                     return ` / [${collaborator}](https://github.com/${collabGitHub})`;
                 })
                 .join('')}`;
-}
+};
+
+// generate the third party assets in the credit section
+const generateThirdPartyCredits = thirdPartyArr => {
+    // exit if there are no third party credits
+    if(!thirdPartyArr[0].confirmThirdParty) {
+        return '';
+    }
+    // otherwise cycle trough the array listing third party assets
+    return `### Third Party Assests Used
+${thirdPartyArr.filter(({ confirmThirdParty }) => confirmThirdParty)
+                .map(({ thirdParty, thirdPartyLink }) => {
+                    return `- [${thirdParty}](${thirdPartyLink})
+                    
+`;
+                })
+                .join('')}`;
+};
+
+// generate the tutorials in the credits section
+const generateTutorialCredits = tutorialArr => {
+    // exit if there are no tutorial credits
+    if(!tutorialArr[0].confirmTutorial) {
+        return '';
+    }
+    // otherwise cycle trough the array listing tutorials
+    return `### Tutorials & Other Resources Used
+${tutorialArr.filter(({ confirmTutorial }) => confirmTutorial)
+                .map(({ tutorial, tutorialLink }) => {
+                    return `- [${tutorial}](${tutorialLink})
+                    
+`;
+                })
+                .join('')}`;
+};
 
 // generate installation steps
 const generateInstall = stepsArr => {
     let step = 0;
-    isOptional = ``;
+    let isOptional = ``;
     return `${stepsArr.map(({ title, description, optional }) => {
                     step++;
                     if (!optional) {
                         isOptional = ``
                     } else {
-                        isOptional = ` (*Optinal*)`;
+                        isOptional = ` (*Optional*)`;
                     }
-                    return `- Step ${step}) **${title}**${isOptional} - ${description};
+                    return `#### Step ${step})
+${title}${isOptional} - ${description};
+`;
+                })
+                .join('')}`;
+};
+
+// generate features
+const generateFeatures = featuresArr => {
+    return `${featuresArr.filter(({ confirmFeature }) => confirmFeature)
+                .map(({ featureName, featureDescription}) => {
+                    
+                    return `- **${featureName}** - *${featureDescription}*
 `;
                 })
                 .join('')}`;
@@ -28,82 +74,88 @@ const generateInstall = stepsArr => {
 module.exports = data => {
 
     // destructure data based on property key names and dump the rest in project
-    const { installSteps, usage, collaborators, features, tests, ...project } = data;
+    const { installSteps, usage, collaborators, thirdParty, tutorial, features, tests, ...project } = data;
 
     return `# ${project.projTitle}
-![GitHub repo size](https://img.shields.io/github/repo-size/${project.userGithub}/${project.repoName}) 
-![GitHub all releases](https://img.shields.io/github/downloads/${project.userGithub}/${project.repoName}/total)
+    
+![GitHub Repo stars](https://img.shields.io/github/stars/${project.userGithub}/${project.repoName}?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/${project.userGithub}/${project.repoName}?style=social)
+
+![GitHub repo size](https://img.shields.io/github/repo-size/${project.userGithub}/${project.repoName})
+![GitHub language count](https://img.shields.io/github/languages/count/${project.userGithub}/${project.repoName})
+![GitHub top language](https://img.shields.io/github/languages/top/${project.userGithub}/${project.repoName})
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/${project.userGithub}/${project.repoName})
+![GitHub last commit](https://img.shields.io/github/last-commit/${project.userGithub}/${project.repoName})
 ![GitHub issues](https://img.shields.io/github/issues-raw/${project.userGithub}/${project.repoName})
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/${project.userGithub}/${project.repoName})
 ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/${project.userGithub}/${project.repoName})
 
 ## Description
-
 ${project.projDescription}  
 
-
+---
 ## Table of Contents
-
-$ {tableOfContents()}
 
 * [Installation](#installation)
 * [Usage](#usage)
+* [Features](#features)
+* [Contributing](#contributing)
+* [Questions](#questions)
+* [Tests](#tests)
 * [Credits](#credits)
 * [License](#license)
 
-
+---
 ## Installation
-
 ${generateInstall(installSteps)}
-## Usage 
 
+---
+## Usage 
 ${usage[0].link}
 
 ![screenshot](${usage[0].scrnSht})
 
 ${usage[0].instructions}
 
-## Credits
-Made with ❤️ by [${project.userName}](https://github.com/${project.userGithub}/)${generateCredits(collaborators)}
-
-### ©️${new Date().getFullYear()} ${project.userName}
-
-## Built With
-
-## License
-
-The last section of a good README is a license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, use [https://choosealicense.com/](https://choosealicense.com/)
-
+---
+## Features
+${generateFeatures(features)}
 
 ---
-
-🏆 The sections listed above are the minimum for a good README, but your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-![GitHub followers](https://img.shields.io/github/followers/${project.userGithub}?label=Follow&style=social)
-
-Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-
-## Features
-
-If your project has a lot of features, consider adding a heading called "Features" and listing them there.
-
-
 ## Contributing
+![GitHub contributors](https://img.shields.io/github/contributors/${project.userGithub}/${project.repoName})
 
-If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
+This project operates under the [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). For more information see the [Contributer Covenant FAQ](https://www.contributor-covenant.org/faq/) or contact [${project.userEmail}](mailto:${project.userEmail}) with any additional questions or comments. 
 
-
+---
 ## Questions
 
-How to contact me with questions about the project
+- [Request a new feature](mailto:${project.userEmail}?subject=Feature%20request%20for%20${project.repoName})
+- [Upvote popular feature requests](https://github.com/${project.userGithub}/${project.repoName}/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)
+- [File an issue](https://github.com/${project.userGithub}/${project.repoName}/issues/new/)
 
+Also, feel free to contact me directly with questions or feedback about the project
+- GitHub Username: [${project.userGithub}](https://github.com/${project.userGithub})
+- Email: [${project.userEmail}](mailto:${project.userEmail}?subject=Question%20about%20${project.repoName})
 
+---
 ## Tests
 
-Go the extra mile and write tests for your application. Then provide examples on how to run them.
+There are currently no tests created for this application.
+
+---
+## Credits
+Made with ❤️ by [${project.userName}](https://github.com/${project.userGithub}/)${generateCollabCredits(collaborators)}
+
+${generateThirdPartyCredits(thirdParty)}
+
+${generateTutorialCredits(tutorial)}
+
+---
+## License
+![GitHub](https://img.shields.io/github/license/${project.userGithub}/${project.repoName})
+
+### ©️${new Date().getFullYear()} ${project.userName}
 
 `;
 };

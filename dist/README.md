@@ -1,78 +1,106 @@
 # Date Night Generator
-![GitHub repo size](https://img.shields.io/github/repo-size/jscottrumptz/date-night-generator) 
-![GitHub all releases](https://img.shields.io/github/downloads/jscottrumptz/date-night-generator/total)
+    
+![GitHub Repo stars](https://img.shields.io/github/stars/jscottrumptz/date-night-generator?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/jscottrumptz/date-night-generator?style=social)
+
+![GitHub repo size](https://img.shields.io/github/repo-size/jscottrumptz/date-night-generator)
+![GitHub language count](https://img.shields.io/github/languages/count/jscottrumptz/date-night-generator)
+![GitHub top language](https://img.shields.io/github/languages/top/jscottrumptz/date-night-generator)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/jscottrumptz/date-night-generator)
+![GitHub last commit](https://img.shields.io/github/last-commit/jscottrumptz/date-night-generator)
 ![GitHub issues](https://img.shields.io/github/issues-raw/jscottrumptz/date-night-generator)
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/jscottrumptz/date-night-generator)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/jscottrumptz/date-night-generator)
 
 ## Description
-
 Get suggestions for great movie, meal and drink combinations and save your favorite groupings to a date night queue.  
 
-
+---
 ## Table of Contents
-
-$ {tableOfContents()}
 
 * [Installation](#installation)
 * [Usage](#usage)
+* [Features](#features)
+* [Contributing](#contributing)
+* [Questions](#questions)
+* [Tests](#tests)
 * [Credits](#credits)
 * [License](#license)
 
-
+---
 ## Installation
+#### Step 1)
+Open Browser - Open your favorite web browser on your phone, tablet, or computer.;
+#### Step 2)
+Navigate to the Webpage - Enter https://jscottrumptz.github.io/date-night-generator/ in the address bar.;
+#### Step 3)
+Grab a Partner (*Optional*) - Call your significant other over to assist in the process.;
 
-- Step 1) **Open Browser** - Open your favorite web browser on your phone, tablet, or computer.;
-- Step 2) **Navigate to the Webpage** - Enter https://jscottrumptz.github.io/date-night-generator/ in the address bar.;
-- Step 3) **Grab a Partner** (*Optinal*) - Call your significant other over to assist in the process.;
 
+---
 ## Usage 
-
 https://jscottrumptz.github.io/date-night-generator/
 
 ![screenshot](https://user-images.githubusercontent.com/74981245/106368421-efdf1a80-630e-11eb-938c-a2f3f6249f80.png)
 
-Select by category and hit the replace and hit "Replace" to generate a random movie, meal, or drink selection. Keep hitting "Replace" until you find a suggestion you like, then move on to another item. After putting together a suitable trio, hit "Save Current Picks" to add them permanently to your Date Night Queue!
+Select by category and hit "Replace" to generate a random movie, meal, or drink selection. Keep hitting "Replace" until you find a suggestion you like, then move on to another item. After putting together a suitable trio, hit "Save Current Picks" to add them permanently to your Date Night Queue!
 
-## Credits
-Made with ❤️ by [J Scott Rumptz](https://github.com/jscottrumptz/) / [Cheryl Fogerty](https://github.com/CherylFogerty) / [Jared Taylor](https://github.com/jmtaylor115) / [Sean Johnson](https://github.com/seanjohnson95)
-
-### ©️2021 J Scott Rumptz
-
-## Built With
-
-## License
-
-The last section of a good README is a license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, use [https://choosealicense.com/](https://choosealicense.com/)
+---
+## Features
+- **Get Random Suggestions** - *Get random movie, meal and drink suggestions based on genres, categories, or countries.*
+- **Featured Item View** - *Displays the most pertinent information in the featured item view.*
+- **Detail View** - *Drill down to a detail view for recipe instructions or videos.*
+- **Printer Friendly** - *In detail view, print the recipes with only text to be printer-ink-friendly.*
+- **Save the Date** - *Save all items in the featured view as a date night and place them in the Date Night Queue.*
+- **Date Night Queue** - *Add or delete date nights from the user's local storage. Clicking previously saved date nights repopulates the featured item view with their details.*
+- **Responsive** - *The application is responsive and mobile friendly.*
 
 
 ---
-
-🏆 The sections listed above are the minimum for a good README, but your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-![GitHub followers](https://img.shields.io/github/followers/jscottrumptz?label=Follow&style=social)
-
-Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-
-## Features
-
-If your project has a lot of features, consider adding a heading called "Features" and listing them there.
-
-
 ## Contributing
+![GitHub contributors](https://img.shields.io/github/contributors/jscottrumptz/date-night-generator)
 
-If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
+This project operates under the [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). For more information see the [Contributer Covenant FAQ](https://www.contributor-covenant.org/faq/) or contact [jscott@rumptz.tech](mailto:jscott@rumptz.tech) with any additional questions or comments. 
 
-
+---
 ## Questions
 
-How to contact me with questions about the project
+- [Request a new feature](mailto:jscott@rumptz.tech?subject=Feature%20request%20for%20date-night-generator)
+- [Upvote popular feature requests](https://github.com/jscottrumptz/date-night-generator/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)
+- [File an issue](https://github.com/jscottrumptz/date-night-generator/issues/new/)
 
+Also, feel free to contact me directly with questions or feedback about the project
+- GitHub Username: [jscottrumptz](https://github.com/jscottrumptz)
+- Email: [jscott@rumptz.tech](mailto:jscott@rumptz.tech?subject=Question%20about%20date-night-generator)
 
+---
 ## Tests
 
-Go the extra mile and write tests for your application. Then provide examples on how to run them.
+There are currently no tests created for this application.
+
+---
+## Credits
+Made with ❤️ by [J Scott Rumptz](https://github.com/jscottrumptz/) / [Cheryl Fogerty](https://github.com/CherylFogerty) / [Jared Taylor](https://github.com/jmtaylor115) / [Sean Johnson](https://github.com/seanjohnson95)
+
+### Third Party Assests Used
+- [Bulma](https://bulma.io/)
+                    
+- [The Movie Database](https://themoviedb.org)
+                    
+- [The Meal Database](https://themealdb.com)
+                    
+- [The Cocktail Database](https://thecocktaildb.com)
+                    
+
+
+### Tutorials & Other Resources Used
+- [Bulma Documentation](https://bulma.io/documentation/)
+                    
+
+
+---
+## License
+![GitHub](https://img.shields.io/github/license/jscottrumptz/date-night-generator)
+
+### ©️2021 J Scott Rumptz
 

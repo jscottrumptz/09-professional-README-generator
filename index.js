@@ -213,7 +213,7 @@ const promptUsage = readmeData => {
             type: 'list',
             name: 'license',
             message: 'Please select a license type.',
-            choices: ['GPLv3', 'GPLv2', 'MIT', 'BSD 3-clause', 'BSD 2-clause', 'Apache License 2.0']
+            choices: ['Apache License 2.0', 'GPL v3.0', 'MIT', 'BSD 2-clause', 'BSD 3-clause', 'Boost', 'CCZ v1.0', 'Eclipse 2.0', 'Affero GPL v3.0', 'GPL v2.0', 'Lesser GPL v2.1', 'Mozilla 2.0', 'Unilicense']
         },
         {
             type: 'confirm',
@@ -278,11 +278,11 @@ const promptCredits = readmeData => {
         }
     }
   ])
-  .then(collabData => {
+  .then(thirdPartyData => {
     // push data into the array
-    readmeData.collaborators.push(collabData);
+    readmeData.collaborators.push(thirdPartyData);
         // check if they want to add another step
-        if (collabData.confirmCredits) {
+        if (thirdPartyData.confirmCredits) {
             // if so, call the function again passing the array back through the function
             return promptCredits(readmeData);
         } else {
@@ -290,6 +290,110 @@ const promptCredits = readmeData => {
             return readmeData;
         }
     });
+};
+
+const promptThirdParty = readmeData => {
+
+  if (!readmeData.thirdParty) {
+      readmeData.thirdParty = [];
+  }
+
+  return inquirer.prompt([
+  {
+      type: 'confirm',
+      name: 'confirmThirdParty',
+      message: 'Do you need to recognize another third-party asset that requires attribution?',
+      default: false,
+    },
+  {
+      type: 'input',
+      name: 'thirdParty',
+      message: 'Third party asset: ',
+      when: ({ confirmThirdParty }) => {
+          if (confirmThirdParty) {
+            return true;
+          } else {
+            return false;
+          }
+      }
+  },
+  {
+      type: 'input',
+      name: 'thirdPartyLink',
+      message: 'Link to their primary web presence: ',
+      when: ({ confirmThirdParty }) => {
+          if (confirmThirdParty) {
+            return true;
+          } else {
+            return false;
+          }
+      }
+  }
+])
+.then(thirdPartyData => {
+  // push data into the array
+  readmeData.thirdParty.push(thirdPartyData);
+      // check if they want to add another step
+      if (thirdPartyData.confirmThirdParty) {
+          // if so, call the function again passing the array back through the function
+          return promptThirdParty(readmeData);
+      } else {
+          // return the array
+          return readmeData;
+      }
+  });
+};
+
+const promptTutorial = readmeData => {
+
+  if (!readmeData.tutorial) {
+      readmeData.tutorial = [];
+  }
+
+  return inquirer.prompt([
+  {
+      type: 'confirm',
+      name: 'confirmTutorial',
+      message: 'Do you need to recognize another turorial or resource?',
+      default: false,
+    },
+  {
+      type: 'input',
+      name: 'tutorial',
+      message: 'Tutorial or resource asset: ',
+      when: ({ confirmTutorial }) => {
+          if (confirmTutorial) {
+            return true;
+          } else {
+            return false;
+          }
+      }
+  },
+  {
+      type: 'input',
+      name: 'tutorialLink',
+      message: 'Link to tutorial or resource: ',
+      when: ({ confirmTutorial }) => {
+          if (confirmTutorial) {
+            return true;
+          } else {
+            return false;
+          }
+      }
+  }
+])
+.then(tutorialData => {
+  // push data into the array
+  readmeData.tutorial.push(tutorialData);
+      // check if they want to add another step
+      if (tutorialData.confirmTutorial) {
+          // if so, call the function again passing the array back through the function
+          return promptThirdParty(readmeData);
+      } else {
+          // return the array
+          return readmeData;
+      }
+  });
 };
 
 const promptFeatures = readmeData => {
@@ -400,6 +504,8 @@ function init() {
     .then(promptInstall)
     .then(promptUsage)
     .then(promptCredits)
+    .then(promptThirdParty)
+    .then(promptTutorial)
     .then(promptFeatures)
     .then(promptTests)
     .then(readmeData => {
@@ -453,7 +559,7 @@ const mockData = {
         link: 'https://jscottrumptz.github.io/date-night-generator/',
         confirmScrnSht: true,
         scrnSht: 'https://user-images.githubusercontent.com/74981245/106368421-efdf1a80-630e-11eb-938c-a2f3f6249f80.png',
-        instructions: 'Select by category and hit the replace and hit "Replace" to generate a random movie, meal, or drink selection. Keep hitting "Replace" until you find a suggestion you like, then move on to another item. After putting together a suitable trio, hit "Save Current Picks" to add them permanently to your Date Night Queue!',
+        instructions: 'Select by category and hit "Replace" to generate a random movie, meal, or drink selection. Keep hitting "Replace" until you find a suggestion you like, then move on to another item. After putting together a suitable trio, hit "Save Current Picks" to add them permanently to your Date Night Queue!',
         license: 'GPLv3',
         confirmContribute: true,
         contributing: ''
@@ -476,6 +582,36 @@ const mockData = {
         collabGitHub: 'seanjohnson95'
       },
       { confirmCredits: false }
+    ],
+    thirdParty: [
+      {
+        confirmThirdParty: true,
+        thirdParty: 'Bulma',
+        thirdPartyLink: 'https://bulma.io/'
+      },{
+        confirmThirdParty: true,
+        thirdParty: 'The Movie Database',
+        thirdPartyLink: 'https://themoviedb.org'
+      },
+      {
+        confirmThirdParty: true,
+        thirdParty: 'The Meal Database',
+        thirdPartyLink: 'https://themealdb.com'
+      },
+      {
+        confirmThirdParty: true,
+        thirdParty: 'The Cocktail Database',
+        thirdPartyLink: 'https://thecocktaildb.com'
+      },
+      { confirmThirdParty: false }
+    ],
+    tutorial: [
+      {
+        confirmTutorial: true,
+        tutorial: 'Bulma Documentation',
+        tutorialLink: 'https://bulma.io/documentation/'
+      },
+      { confirmTutorial: false }
     ],
     features: [
       {
