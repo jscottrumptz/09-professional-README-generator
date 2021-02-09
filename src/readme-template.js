@@ -196,7 +196,9 @@ const generateLicense = (usageArr, projArr) => {
     return `---
 
 ## License
-[![GitHub](https://img.shields.io/github/license/${projArr.userGithub}/${projArr.repoName})](https://github.com/${projArr.userGithub}/${projArr.repoName}/blob/main/LICENSE/?target=_blank)`
+[![GitHub](https://img.shields.io/github/license/${projArr.userGithub}/${projArr.repoName})](https://github.com/${projArr.userGithub}/${projArr.repoName}/blob/main/LICENSE/?target=_blank) more [details](https://github.com/${projArr.userGithub}/${projArr.repoName}/blob/main/LICENSE/?target=_blank)
+
+This project utilizes the [${usageArr[0].license}](https://github.com/${projArr.userGithub}/${projArr.repoName}/blob/main/LICENSE/?target=_blank).`
 };
 
 module.exports = data => {
@@ -206,6 +208,7 @@ module.exports = data => {
 
     return `# ${project.projTitle}
     
+[![GitHub](https://img.shields.io/github/license/${project.userGithub}/${project.repoName})](https://github.com/${project.userGithub}/${project.repoName}/blob/main/LICENSE/?target=_blank)
 ![GitHub Repo stars](https://img.shields.io/github/stars/${project.userGithub}/${project.repoName}?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/${project.userGithub}/${project.repoName}?style=social)
 ![GitHub repo size](https://img.shields.io/github/repo-size/${project.userGithub}/${project.repoName})

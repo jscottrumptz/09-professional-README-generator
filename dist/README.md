@@ -1,5 +1,6 @@
 # Date Night Generator
     
+[![GitHub](https://img.shields.io/github/license/jscottrumptz/date-night-generator)](https://github.com/jscottrumptz/date-night-generator/blob/main/LICENSE/?target=_blank)
 ![GitHub Repo stars](https://img.shields.io/github/stars/jscottrumptz/date-night-generator?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/jscottrumptz/date-night-generator?style=social)
 ![GitHub repo size](https://img.shields.io/github/repo-size/jscottrumptz/date-night-generator)
@@ -110,7 +111,9 @@ Made with ❤️ by [J Scott Rumptz](https://github.com/jscottrumptz/?target=_bl
 ---
 
 ## License
-[![GitHub](https://img.shields.io/github/license/jscottrumptz/date-night-generator)](https://github.com/jscottrumptz/date-night-generator/blob/main/LICENSE/?target=_blank)
+[![GitHub](https://img.shields.io/github/license/jscottrumptz/date-night-generator)](https://github.com/jscottrumptz/date-night-generator/blob/main/LICENSE/?target=_blank) more [details](https://github.com/jscottrumptz/date-night-generator/blob/main/LICENSE/?target=_blank)
+
+This project utilizes the [BSD 3-Clause "New" or "Revised" License](https://github.com/jscottrumptz/date-night-generator/blob/main/LICENSE/?target=_blank).
 
 ### ©️2021 J Scott Rumptz
 

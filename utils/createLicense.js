@@ -209,8 +209,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.`
         break;
-        // generate the content for the ___ license file
-        case 'GPL v3.0' : fileContent = `                            GNU GENERAL PUBLIC LICENSE
+        // generate the content for the GNU General Public License v3.0 file
+        case 'GNU General Public License v3.0' : fileContent = `                            GNU GENERAL PUBLIC LICENSE
                              Version 3, 29 June 2007
 
 Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
@@ -885,8 +885,8 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.`
         break;
-        // generate the content for the ___ license file
-        case 'MIT' : fileContent = `MIT License
+        // generate the content for the MIT License file
+        case 'MIT License' : fileContent = `MIT License
 
 Copyright (c) ${new Date().getFullYear()} ${name}
 
@@ -908,8 +908,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.`
         break;
-        // generate the content for the ___ license file
-        case 'BSD 2-clause' : fileContent = `BSD 2-Clause License
+        // generate the content for the 'BSD 2-Clause "Simplified" License' file
+        case 'BSD 2-Clause "Simplified" License' : fileContent = `BSD 2-Clause License
 
 Copyright (c) ${new Date().getFullYear()}, ${name}
 All rights reserved.
@@ -935,8 +935,8 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`
         break;
-        // generate the content for the BSD 3-Clause License
-        case 'BSD 3-clause' : fileContent = `BSD 3-Clause License
+        // generate the content for the 'BSD 3-Clause "New" or "Revised" License' file
+        case 'BSD 3-Clause "New" or "Revised" License' : fileContent = `BSD 3-Clause License
 
 Copyright (c) ${new Date().getFullYear()}, ${name}
 All rights reserved.
@@ -966,8 +966,8 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`
         break;
-        // generate the content for the ___ license file
-        case 'Boost' : fileContent = `Boost Software License - Version 1.0 - August 17th, 2003
+        // generate the content for the 'Boost Software License 1.0' file
+        case 'Boost Software License 1.0' : fileContent = `Boost Software License - Version 1.0 - August 17th, 2003
 
 Permission is hereby granted, free of charge, to any person or organization
 obtaining a copy of the software and accompanying documentation covered by
@@ -991,8 +991,8 @@ FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.`
         break;
-        // generate the content for the ___ license file
-        case 'CCZ v1.0' : fileContent = `Creative Commons Legal Code
+        // generate the content for the 'Creative Commons Zero v1.0 Universal' file
+        case 'Creative Commons Zero v1.0 Universal' : fileContent = `Creative Commons Legal Code
 
 CC0 1.0 Universal
 
@@ -1114,8 +1114,8 @@ d. Affirmer understands and acknowledges that Creative Commons is not a
 party to this document and has no duty or obligation with respect to
 this CC0 or use of the Work.`
         break;
-        // generate the content for the ___ license file
-        case 'Eclipse 2.0' : fileContent = `Eclipse Public License - v 2.0
+        // generate the content for the 'Eclipse Public License 2.0' file
+        case 'Eclipse Public License 2.0' : fileContent = `Eclipse Public License - v 2.0
 
     THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS ECLIPSE
     PUBLIC LICENSE ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION
@@ -1393,8 +1393,8 @@ version(s), and exceptions or additional permissions here}."
 
     You may add additional accurate notices of copyright ownership.`
         break;
-        // generate the content for the ___ license file
-        case 'Affero GPL v3.0' : fileContent = `                    GNU AFFERO GENERAL PUBLIC LICENSE
+        // generate the content for the 'GNU Affero General Public License v3.0' file
+        case 'GNU Affero General Public License v3.0' : fileContent = `                    GNU AFFERO GENERAL PUBLIC LICENSE
         Version 3, 19 November 2007
 
 Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
@@ -2056,8 +2056,8 @@ if any, to sign a "copyright disclaimer" for the program, if necessary.
 For more information on this, and how to apply and follow the GNU AGPL, see
 <https://www.gnu.org/licenses/>.`
         break;
-        // generate the content for the ___ license file
-        case 'GPL v2.0' : fileContent = `                    GNU GENERAL PUBLIC LICENSE
+        // generate the content for the 'GNU General Public License v2.0' file
+        case 'GNU General Public License v2.0' : fileContent = `                    GNU GENERAL PUBLIC LICENSE
         Version 2, June 1991
 
 Copyright (C) 1989, 1991 Free Software Foundation, Inc.,
@@ -2397,8 +2397,8 @@ consider it more useful to permit linking proprietary applications with the
 library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.`
         break;
-        // generate the content for the ___ license file
-        case 'Lesser GPL v2.1' : fileContent = `                  GNU LESSER GENERAL PUBLIC LICENSE
+        // generate the content for the 'GNU Lesser General Public License v2.1' file
+        case 'GNU Lesser General Public License v2.1' : fileContent = `                  GNU LESSER GENERAL PUBLIC LICENSE
         Version 2.1, February 1999
 
 Copyright (C) 1991, 1999 Free Software Foundation, Inc.
@@ -2903,8 +2903,8 @@ Ty Coon, President of Vice
 
 That's all there is to it!`
         break;
-        // generate the content for the ___ license file
-        case 'Mozilla 2.0' : fileContent = `Mozilla Public License Version 2.0
+        // generate the content for the 'Mozilla Public License 2.0' file
+        case 'Mozilla Public License 2.0' : fileContent = `Mozilla Public License Version 2.0
 ==================================
 
 1. Definitions
@@ -3278,8 +3278,8 @@ Exhibit B - "Incompatible With Secondary Licenses" Notice
     This Source Code Form is "Incompatible With Secondary Licenses", as
     defined by the Mozilla Public License, v. 2.0.`
         break;
-        // generate the content for the ___ license file
-        case 'Unilicense' : fileContent = `This is free and unencumbered software released into the public domain.
+        // generate the content for the 'The Unlicense' file
+        case 'The Unlicense' : fileContent = `This is free and unencumbered software released into the public domain.
 
 Anyone is free to copy, modify, publish, use, compile, sell, or
 distribute this software, either in source code form or as a compiled

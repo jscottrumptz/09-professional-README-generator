@@ -253,7 +253,7 @@ const promptUsage = readmeData => {
             type: 'list',
             name: 'license',
             message: 'Please select a license type.',
-            choices: ['None', 'Apache License 2.0', 'GPL v3.0', 'MIT', 'BSD 2-clause', 'BSD 3-clause', 'Boost', 'CCZ v1.0', 'Eclipse 2.0', 'Affero GPL v3.0', 'GPL v2.0', 'Lesser GPL v2.1', 'Mozilla 2.0', 'Unilicense']
+            choices: ['None', 'Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause "Simplified" License', 'BSD 3-Clause "New" or "Revised" License', 'Boost Software License 1.0', 'Creative Commons Zero v1.0 Universal', 'Eclipse Public License 2.0', 'GNU Affero General Public License v3.0', 'GNU General Public License v2.0', 'GNU Lesser General Public License v2.1', 'Mozilla Public License 2.0', 'The Unlicense']
         },
         {
             type: 'confirm',
@@ -583,7 +583,7 @@ const mockData = {
         title: 'Open Browser',
         description: 'Open your favorite web browser on your phone, tablet, or computer.',
         optional: false,
-        confirmAddStep: true
+        confirmAddStep: false
       },
       {
         title: 'Navigate to the Webpage',
@@ -605,7 +605,7 @@ const mockData = {
         confirmScrnSht: true,
         scrnSht: 'https://user-images.githubusercontent.com/74981245/106368421-efdf1a80-630e-11eb-938c-a2f3f6249f80.png',
         instructions: 'Select by category and hit "Replace" to generate a random movie, meal, or drink selection. Keep hitting "Replace" until you find a suggestion you like, then move on to another item. After putting together a suitable trio, hit "Save Current Picks" to add them permanently to your Date Night Queue!',
-        license: 'BSD 3-clause',
+        license: 'BSD 3-Clause "New" or "Revised" License',
         confirmContribute: true,
         contributing: ''
       }
