@@ -1,6 +1,6 @@
 // Packages needed for this application
 const inquirer = require('inquirer');
-const generateReadme = require('./src/readme-template.js');
+const generateReadme = require('./utils/generateMarkdown.js');
 const writeToFile = require('./utils/writeToFile.js');
 
 // Create an array of questions for user input
@@ -559,12 +559,16 @@ function init() {
     });
 }
 
-//// Function call to initialize app
-// init();
+// Function call to initialize app
+init();
 
 
 
-///// DELETE BELOW /////
+/////     MOCK DATA FOR TESTING BELOW     /////
+//      to test mock data...
+//      step 1) comment out the init(); function above
+//      step 2) uncomment the markdownTest constant and the writeToFile function below
+//      step 3) type 'node index' in the console
 
 const mockData = {
     userName: 'J Scott Rumptz',
@@ -583,7 +587,7 @@ const mockData = {
         title: 'Open Browser',
         description: 'Open your favorite web browser on your phone, tablet, or computer.',
         optional: false,
-        confirmAddStep: false
+        confirmAddStep: true
       },
       {
         title: 'Navigate to the Webpage',
@@ -711,5 +715,5 @@ const mockData = {
     ]
 };
 
-const markdownTest = generateReadme(mockData);
-writeToFile(markdownTest);
+// const markdownTest = generateReadme(mockData);
+// writeToFile(markdownTest);

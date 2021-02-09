@@ -1,85 +1,108 @@
-# 09-professional-README-generator
-Generates a README file by using a command-line application to generate one.
+# Professional README Generator
+    
+[![GitHub](https://img.shields.io/github/license/jscottrumptz/09-professional-README-generator)](https://github.com/jscottrumptz/09-professional-README-generator/blob/main/LICENSE/?target=_blank)
+![GitHub Repo stars](https://img.shields.io/github/stars/jscottrumptz/09-professional-README-generator?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/jscottrumptz/09-professional-README-generator?style=social)
+![GitHub repo size](https://img.shields.io/github/repo-size/jscottrumptz/09-professional-README-generator)
+![GitHub language count](https://img.shields.io/github/languages/count/jscottrumptz/09-professional-README-generator)
+![GitHub top language](https://img.shields.io/github/languages/top/jscottrumptz/09-professional-README-generator)
 
-# Your Project Title
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/jscottrumptz/09-professional-README-generator)
+![GitHub last commit](https://img.shields.io/github/last-commit/jscottrumptz/09-professional-README-generator)
+![GitHub issues](https://img.shields.io/github/issues-raw/jscottrumptz/09-professional-README-generator)
+![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/jscottrumptz/09-professional-README-generator)
+![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/jscottrumptz/09-professional-README-generator)
 
-## Description 
+## Description
+Use the command line to quickly generate a professional README and LICENSE file for your project or application.  
 
-Your GitHub profile is an extremely important aspect of your public identity as a developer. A well-crafted one allows you to show off your work to other developers as well as potential employers. An important component of your GitHub profile—and one that many new developers often overlook—is the README.md file.
+---
+## Table of Contents
 
-The quality of a README often differentiates a good project from a bad project. A good one takes advantage of the opportunity to explain and showcase what your application does, justify the technologies used, and even talk about some of the challenges you faced and features you hope to implement in the future. A good README helps you stand out among the large crowd of developers putting their work on GitHub.
-
-There's no one right way to structure a good README. There is one very wrong way, however, and that is to not include a README at all or to create a very anemic one. This guide outlines a few best practices. As you progress in your career, you will develop your own ideas about what makes a good README.
-
-At a minimum, your project README needs a title and a short description explaining the what, why, and how. What was your motivation? Why did you build this project? (Note: The answer is not "Because it was a homework assignment.") What problem does it solve? What did you learn? What makes your project stand out?
-
-Lastly, if your project is deployed, include a link to the deployed application here.
-
-If you're new to Markdown, read the GitHub guide on [Mastering Markdown](https://guides.github.com/features/mastering-markdown/).
-
-If you need an example of a good README, check out [the VSCode repository](https://github.com/microsoft/vscode).
-
-
-## Table of Contents (Optional)
-
-If your README is very long, add a table of contents to make it easy for users to find what they need.
 
 * [Installation](#installation)
 * [Usage](#usage)
+* [Features](#features)
+* [Contributing](#contributing)
+* [Questions](#questions)
+* [Tests](#tests)
 * [Credits](#credits)
 * [License](#license)
 
+---
 
 ## Installation
+#### Step 1)
+Clone the Repository - Clone the GitHub repository to your local computer.;
+#### Step 2)
+Run the application - Type 'node index' in the command line from the root folder of the application.;
+#### Step 3)
+Get your files - Get you professional README and LICENSE files from the '/dist' directory.;
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
 
-
+---
 ## Usage 
+[https://youtu.be/l91T07lxOeI](https://youtu.be/l91T07lxOeI?target=_blank) link to the [instructional video](https://youtu.be/l91T07lxOeI?target=_blank)
+    
+![screenshot](https://user-images.githubusercontent.com/74981245/107427032-903ef700-6ae6-11eb-8311-f7f916778921.png)
 
-Provide instructions and examples for use. Include screenshots as needed.
+Simply answer the prompts from the command line and let the application generate professional and feature-rich README and LICENSE files. You can then take them and place them within your project's repository. 
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+**This README was generated from this application.**
 
-```md
-![alt text](assets/images/screenshot.png)
-```
+---
+
+## Features
+- **Auto Generated Table of Contents** - *A table of contents with links will be auto generated based on input*
+- **Auto Generated Badges** - *Badges will be automatically added to the README*
+- **Auto Generated LICENSE file** - *A license file will be created based on input*
+- **Auto Generated Links** - *Links to external content and email adresses will be auto-populated*
 
 
+---
+## Contributing
+![GitHub contributors](https://img.shields.io/github/contributors/jscottrumptz/09-professional-README-generator)
+
+This project operates under the [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/?target=_blank). For more information see the [Contributer Covenant FAQ](https://www.contributor-covenant.org/faq/?target=_blank) or contact [J Scott Rumptz](mailto:jscott@rumptz.tech?subject=Contribution%20question%20concerning%2009-professional-README-generator) with any additional questions or comments.
+
+---
+## Questions
+
+- [Request a new feature](mailto:jscott@rumptz.tech?subject=Feature%20request%20for%2009-professional-README-generator)
+- [Upvote popular feature requests](https://github.com/jscottrumptz/09-professional-README-generator/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc?target=_blank)
+- [File an issue](https://github.com/jscottrumptz/09-professional-README-generator/issues/new/?target=_blank)
+
+Also, feel free to contact me directly with questions or feedback about the project
+- GitHub Username: [jscottrumptz](https://github.com/jscottrumptz?target=_blank)
+- Email: [jscott@rumptz.tech](mailto:jscott@rumptz.tech?subject=Question%20about%2009-professional-README-generator)
+
+---
+
+## Tests
+
+
+### Test with mock data
+- Comment out the 'init()' function in the 'index.js' file and uncomment the 'markdownTest' const and the 'writeToFile' function in the same file. Then run the application as normal. You can edit the mock data by editing the 'mockData' values.
+
+---
 ## Credits
+Made with ❤️ by [J Scott Rumptz](https://github.com/jscottrumptz/?target=_blank)
 
-List your collaborators, if any, with links to their GitHub profiles.
+### Third Party Assests Used
+- [Inquirer.js](https://www.npmjs.com/package/inquirer?target=_blank)
+                    
+- [Node.js](https://nodejs.org/?target=_blank)
+                    
 
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 
-If you followed tutorials, include links to those here as well.
-
-
-## License
-
-The last section of a good README is a license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, use [https://choosealicense.com/](https://choosealicense.com/)
 
 
 ---
 
-🏆 The sections listed above are the minimum for a good README, but your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
+## License
+[![GitHub](https://img.shields.io/github/license/jscottrumptz/09-professional-README-generator)](https://github.com/jscottrumptz/09-professional-README-generator/blob/main/LICENSE/?target=_blank) more [details](https://github.com/jscottrumptz/09-professional-README-generator/blob/main/LICENSE/?target=_blank)
 
-## Badges
+This project utilizes the [MIT License](https://github.com/jscottrumptz/09-professional-README-generator/blob/main/LICENSE/?target=_blank).
 
-![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
+### ©️2021 J Scott Rumptz
 
-Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-
-## Features
-
-If your project has a lot of features, consider adding a heading called "Features" and listing them there.
-
-
-## Contributing
-
-If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
-
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them.

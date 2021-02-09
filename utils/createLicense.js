@@ -3,7 +3,7 @@ const fs = require('fs');
 //Create a function to write README file
 const createLicense = (license, name) => {
 
-    // select license depending on the users choice
+    // select the license depending on the users choice
     switch (license)
     {
         // generate the content for the Apache License 2.0 license file
