@@ -605,7 +605,7 @@ const mockData = {
         confirmScrnSht: true,
         scrnSht: 'https://user-images.githubusercontent.com/74981245/106368421-efdf1a80-630e-11eb-938c-a2f3f6249f80.png',
         instructions: 'Select by category and hit "Replace" to generate a random movie, meal, or drink selection. Keep hitting "Replace" until you find a suggestion you like, then move on to another item. After putting together a suitable trio, hit "Save Current Picks" to add them permanently to your Date Night Queue!',
-        license: 'Apache License 2.0',
+        license: 'BSD 3-clause',
         confirmContribute: true,
         contributing: ''
       }
@@ -701,6 +701,11 @@ const mockData = {
         confirmTest: true,
         test: 'Visit the application generate and execute a random date-night.',
         testExample: 'Go to the website. Generate a random date-night. Execute the date-night. Enjoy yourselves. Repeat.'
+      },
+      {
+        confirmTest: true,
+        test: 'Log results.',
+        testExample: 'Keep a journal under lock and key.'
       },
       { confirmTest: false }
     ]

@@ -42,11 +42,10 @@ Grab a Partner (*Optional*) - Call your significant other over to assist in the 
 ---
 ## Usage 
 [https://jscottrumptz.github.io/date-night-generator/](https://jscottrumptz.github.io/date-night-generator/?target=_blank)
-
+    
 ![screenshot](https://user-images.githubusercontent.com/74981245/106368421-efdf1a80-630e-11eb-938c-a2f3f6249f80.png)
 
 Select by category and hit "Replace" to generate a random movie, meal, or drink selection. Keep hitting "Replace" until you find a suggestion you like, then move on to another item. After putting together a suitable trio, hit "Save Current Picks" to add them permanently to your Date Night Queue!
-
 
 ---
 
@@ -78,9 +77,15 @@ Also, feel free to contact me directly with questions or feedback about the proj
 - Email: [jscott@rumptz.tech](mailto:jscott@rumptz.tech?subject=Question%20about%20date-night-generator)
 
 ---
+
 ## Tests
 
-There are currently no tests created for this application.
+
+### Visit the application generate and execute a random date-night.
+- Go to the website. Generate a random date-night. Execute the date-night. Enjoy yourselves. Repeat.
+
+### Log results.
+- Keep a journal under lock and key.
 
 ---
 ## Credits

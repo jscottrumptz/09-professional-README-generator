@@ -2,7 +2,7 @@
 const createLicense = require('../utils/createLicense.js');
 
 // generate the table of contents
-const tableOfContents = (triggerArr, featuresArr, usageArr) => {
+const tableOfContents = (triggerArr, featuresArr, usageArr, testsArr) => {
     // array that holds the table of contents
     let tableOfContentsArr = [
         '* [Installation](#installation)',
@@ -23,6 +23,10 @@ const tableOfContents = (triggerArr, featuresArr, usageArr) => {
     // if no featuress, remove features from ToC
     if(!featuresArr[0].confirmFeature) {
         tableOfContentsArr[2] = '';
+    }
+    // if no tests, remove tests from ToC
+    if(!testsArr[0].confirmTest) {
+        tableOfContentsArr[5] = '';
     }
     // if no license, remove license from ToC
     if(usageArr[0].license === 'None') {
@@ -66,6 +70,21 @@ ${title}${isOptional} - ${description};
                 .join('')}`;
 };
 
+// generate usage content
+const generateUsage = (usageArr) => {
+    return`${usageArr.filter(({ confirmLink }) => confirmLink)
+    .map(({ link}) => {
+        return `[${link}](${link}?target=_blank)`;
+    })
+    .join('')}
+    ${usageArr.filter(({ confirmScrnSht }) => confirmScrnSht)
+    .map(({ scrnSht}) => {
+        return `
+![screenshot](${scrnSht})`;
+    })
+    .join('')}`
+
+}
 // generate features
 const generateFeatures = featuresArr => {
     // return an empty string if there are no features
@@ -97,6 +116,26 @@ const generateContribute = (usageArr, projArray) => {
     }
     // otherwise use the users input
     return `${usageArr[0].contributing}`
+};
+
+// generate test section
+const generateTests = (testsArr) => {
+    // if the user selects no tests
+    if(!testsArr[0].confirmTest) {
+        return '';
+    }
+    // otherwise cycle trough the array listing the tests
+    return `---
+
+## Tests
+${testsArr.filter(({ confirmTest }) => confirmTest)
+                .map(({ test, testExample }) => {
+                    return `
+
+### ${test}
+- ${testExample}`;
+                })
+                .join('')}`;
 };
 
 // generate the collaborators in the credits section
@@ -185,18 +224,15 @@ ${project.projDescription}
 ---
 ## Table of Contents
 
-${tableOfContents(installTrigger, features, usage)}
+${tableOfContents(installTrigger, features, usage, tests)}
 
 ${generateInstall(installTrigger, installSteps)}
 
 ---
 ## Usage 
-[${usage[0].link}](${usage[0].link}?target=_blank)
-
-![screenshot](${usage[0].scrnSht})
+${generateUsage (usage)}
 
 ${usage[0].instructions}
-
 
 ${generateFeatures(features)}
 
@@ -217,10 +253,7 @@ Also, feel free to contact me directly with questions or feedback about the proj
 - GitHub Username: [${project.userGithub}](https://github.com/${project.userGithub}?target=_blank)
 - Email: [${project.userEmail}](mailto:${project.userEmail}?subject=Question%20about%20${project.repoName})
 
----
-## Tests
-
-There are currently no tests created for this application.
+${generateTests(tests)}
 
 ---
 ## Credits
