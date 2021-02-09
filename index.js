@@ -502,7 +502,7 @@ const promptTests = readmeData => {
     {
         type: 'input',
         name: 'test',
-        message: 'Write test: ',
+        message: 'Test Header: ',
         when: ({ confirmTest }) => {
             if (confirmTest) {
               return true;

@@ -53,10 +53,10 @@ Simply answer the prompts from the command line and let the application generate
 ---
 
 ## Features
-- **Auto Generated Table of Contents** - *A table of contents with links will be auto generated based on input*
-- **Auto Generated Badges** - *Badges will be automatically added to the README*
-- **Auto Generated LICENSE file** - *A license file will be created based on input*
-- **Auto Generated Links** - *Links to external content and email adresses will be auto-populated*
+- **Auto Generate Table of Contents** - *A table of contents with links will be auto generated based on input*
+- **Auto Generate Badges** - *Badges will be automatically added to the README*
+- **Auto Generate LICENSE file** - *A license file will be created based on input*
+- **Auto Generate Links** - *Links to external content and email adresses will be auto-populated*
 
 
 ---
