@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const generateReadme = require('./src/readme-template.js');
 const writeToFile = require('./utils/writeToFile.js');
 
-//Create an array of questions for user input
+// Create an array of questions for user input
 const promptUser = () => {
     return inquirer.prompt([
     {
@@ -96,30 +96,25 @@ const installTrigger = readmeData => {
       {
           type: 'confirm',
           name: 'confirmInstall',
-          message: 'Do you have install instructions?',
+          message: 'Do you have installation instructions?',
           default: true
         }
   ])
   .then(triggerData => {
     // push data into the array
     readmeData.installTrigger.push(triggerData);
-    // check if they want to add another step
+    // check if they want to add installation instructions
     if (triggerData.confirmInstall) {
-        // if so, call the function again passing the array back through the function
+        // if so, pass the array through promptInstall function
         return promptInstall(readmeData);
       } else {
-          // return the array
+          // if not, pass the array through promptUsage function
           return promptUsage(readmeData);
       }
   });
 };
 
 const promptInstall = readmeData => {
-    // If there is no 'readmeData' array property, create one
-    if (!readmeData.installSteps) {
-        readmeData.installSteps = [];
-        stepNum = 0;
-    }
     stepNum++;
     console.log(`
         ====================
@@ -547,7 +542,6 @@ const promptTests = readmeData => {
 function init() {
     promptUser()
     .then(installTrigger)
-    // .then(promptInstall)
     .then(promptUsage)
     .then(promptCredits)
     .then(promptThirdParty)

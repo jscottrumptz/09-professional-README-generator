@@ -41,7 +41,7 @@ Grab a Partner (*Optional*) - Call your significant other over to assist in the 
 
 ---
 ## Usage 
-https://jscottrumptz.github.io/date-night-generator/
+[https://jscottrumptz.github.io/date-night-generator/](https://jscottrumptz.github.io/date-night-generator/?target=_blank)
 
 ![screenshot](https://user-images.githubusercontent.com/74981245/106368421-efdf1a80-630e-11eb-938c-a2f3f6249f80.png)
 
@@ -64,17 +64,17 @@ Select by category and hit "Replace" to generate a random movie, meal, or drink 
 ## Contributing
 ![GitHub contributors](https://img.shields.io/github/contributors/jscottrumptz/date-night-generator)
 
-This project operates under the [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). For more information see the [Contributer Covenant FAQ](https://www.contributor-covenant.org/faq/) or contact [J Scott Rumptz](mailto:jscott@rumptz.tech?subject=Contribution%20question%20concerning%20date-night-generator) with any additional questions or comments.
+This project operates under the [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/?target=_blank). For more information see the [Contributer Covenant FAQ](https://www.contributor-covenant.org/faq/?target=_blank) or contact [J Scott Rumptz](mailto:jscott@rumptz.tech?subject=Contribution%20question%20concerning%20date-night-generator) with any additional questions or comments.
 
 ---
 ## Questions
 
 - [Request a new feature](mailto:jscott@rumptz.tech?subject=Feature%20request%20for%20date-night-generator)
-- [Upvote popular feature requests](https://github.com/jscottrumptz/date-night-generator/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)
-- [File an issue](https://github.com/jscottrumptz/date-night-generator/issues/new/)
+- [Upvote popular feature requests](https://github.com/jscottrumptz/date-night-generator/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc?target=_blank)
+- [File an issue](https://github.com/jscottrumptz/date-night-generator/issues/new/?target=_blank)
 
 Also, feel free to contact me directly with questions or feedback about the project
-- GitHub Username: [jscottrumptz](https://github.com/jscottrumptz)
+- GitHub Username: [jscottrumptz](https://github.com/jscottrumptz?target=_blank)
 - Email: [jscott@rumptz.tech](mailto:jscott@rumptz.tech?subject=Question%20about%20date-night-generator)
 
 ---
@@ -84,27 +84,27 @@ There are currently no tests created for this application.
 
 ---
 ## Credits
-Made with ❤️ by [J Scott Rumptz](https://github.com/jscottrumptz/) / [Cheryl Fogerty](https://github.com/CherylFogerty) / [Jared Taylor](https://github.com/jmtaylor115) / [Sean Johnson](https://github.com/seanjohnson95)
+Made with ❤️ by [J Scott Rumptz](https://github.com/jscottrumptz/?target=_blank) / [Cheryl Fogerty](https://github.com/CherylFogerty?target=_blank) / [Jared Taylor](https://github.com/jmtaylor115?target=_blank) / [Sean Johnson](https://github.com/seanjohnson95?target=_blank)
 
 ### Third Party Assests Used
-- [Bulma](https://bulma.io/)
+- [Bulma](https://bulma.io/?target=_blank)
                     
-- [The Movie Database](https://themoviedb.org)
+- [The Movie Database](https://themoviedb.org?target=_blank)
                     
-- [The Meal Database](https://themealdb.com)
+- [The Meal Database](https://themealdb.com?target=_blank)
                     
-- [The Cocktail Database](https://thecocktaildb.com)
+- [The Cocktail Database](https://thecocktaildb.com?target=_blank)
                     
 
 
 ### Tutorials & Other Resources Used
-- [Bulma Documentation](https://bulma.io/documentation/)
+- [Bulma Documentation](https://bulma.io/documentation/?target=_blank)
                     
 
 
 ---
 ## License
-![GitHub](https://img.shields.io/github/license/jscottrumptz/date-night-generator)
+[![GitHub](https://img.shields.io/github/license/jscottrumptz/date-night-generator)](https://github.com/jscottrumptz/date-night-generator/blob/main/LICENSE/?target=_blank)
 
 ### ©️2021 J Scott Rumptz
 

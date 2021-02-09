@@ -14,7 +14,7 @@ const generateCollabCredits = collabArr => {
     // filter by confirmCredits credits and add collaborator info if needed
     return `${collabArr.filter(({ confirmCredits }) => confirmCredits)
                 .map(({ collaborator, collabGitHub }) => {
-                    return ` / [${collaborator}](https://github.com/${collabGitHub})`;
+                    return ` / [${collaborator}](https://github.com/${collabGitHub}?target=_blank)`;
                 })
                 .join('')}`;
 };
@@ -29,7 +29,7 @@ const generateThirdPartyCredits = thirdPartyArr => {
     return `### Third Party Assests Used
 ${thirdPartyArr.filter(({ confirmThirdParty }) => confirmThirdParty)
                 .map(({ thirdParty, thirdPartyLink }) => {
-                    return `- [${thirdParty}](${thirdPartyLink})
+                    return `- [${thirdParty}](${thirdPartyLink}?target=_blank)
                     
 `;
                 })
@@ -46,7 +46,7 @@ const generateTutorialCredits = tutorialArr => {
     return `### Tutorials & Other Resources Used
 ${tutorialArr.filter(({ confirmTutorial }) => confirmTutorial)
                 .map(({ tutorial, tutorialLink }) => {
-                    return `- [${tutorial}](${tutorialLink})
+                    return `- [${tutorial}](${tutorialLink}?target=_blank)
                     
 `;
                 })
@@ -105,7 +105,7 @@ const generateContribute = (usageArr, projArray) => {
     }
     // if the user leaves blank to signify they want to use the contributor covenant
     if(usageArr[0].contributing === '') {
-        return `This project operates under the [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). For more information see the [Contributer Covenant FAQ](https://www.contributor-covenant.org/faq/) or contact [${projArray.userName}](mailto:${projArray.userEmail}?subject=Contribution%20question%20concerning%20${projArray.repoName}) with any additional questions or comments.`;
+        return `This project operates under the [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/?target=_blank). For more information see the [Contributer Covenant FAQ](https://www.contributor-covenant.org/faq/?target=_blank) or contact [${projArray.userName}](mailto:${projArray.userEmail}?subject=Contribution%20question%20concerning%20${projArray.repoName}) with any additional questions or comments.`;
     }
     // otherwise use the users input
     return `${usageArr[0].contributing}`
@@ -161,7 +161,7 @@ ${generateInstall(installTrigger, installSteps)}
 
 ---
 ## Usage 
-${usage[0].link}
+[${usage[0].link}](${usage[0].link}?target=_blank)
 
 ![screenshot](${usage[0].scrnSht})
 
@@ -180,11 +180,11 @@ ${generateContribute(usage, project)}
 ## Questions
 
 - [Request a new feature](mailto:${project.userEmail}?subject=Feature%20request%20for%20${project.repoName})
-- [Upvote popular feature requests](https://github.com/${project.userGithub}/${project.repoName}/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)
-- [File an issue](https://github.com/${project.userGithub}/${project.repoName}/issues/new/)
+- [Upvote popular feature requests](https://github.com/${project.userGithub}/${project.repoName}/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc?target=_blank)
+- [File an issue](https://github.com/${project.userGithub}/${project.repoName}/issues/new/?target=_blank)
 
 Also, feel free to contact me directly with questions or feedback about the project
-- GitHub Username: [${project.userGithub}](https://github.com/${project.userGithub})
+- GitHub Username: [${project.userGithub}](https://github.com/${project.userGithub}?target=_blank)
 - Email: [${project.userEmail}](mailto:${project.userEmail}?subject=Question%20about%20${project.repoName})
 
 ---
@@ -194,7 +194,7 @@ There are currently no tests created for this application.
 
 ---
 ## Credits
-Made with ❤️ by [${project.userName}](https://github.com/${project.userGithub}/)${generateCollabCredits(collaborators)}
+Made with ❤️ by [${project.userName}](https://github.com/${project.userGithub}/?target=_blank)${generateCollabCredits(collaborators)}
 
 ${generateThirdPartyCredits(thirdParty)}
 
@@ -202,7 +202,7 @@ ${generateTutorialCredits(tutorial)}
 
 ---
 ## License
-![GitHub](https://img.shields.io/github/license/${project.userGithub}/${project.repoName})
+[![GitHub](https://img.shields.io/github/license/${project.userGithub}/${project.repoName})](https://github.com/${project.userGithub}/${project.repoName}/blob/main/LICENSE/?target=_blank)
 
 ### ©️${new Date().getFullYear()} ${project.userName}
 
