@@ -18,6 +18,7 @@ Get suggestions for great movie, meal and drink combinations and save your favor
 ---
 ## Table of Contents
 
+
 * [Installation](#installation)
 * [Usage](#usage)
 * [Features](#features)
@@ -28,6 +29,7 @@ Get suggestions for great movie, meal and drink combinations and save your favor
 * [License](#license)
 
 ---
+
 ## Installation
 #### Step 1)
 Open Browser - Open your favorite web browser on your phone, tablet, or computer.;
@@ -45,7 +47,9 @@ https://jscottrumptz.github.io/date-night-generator/
 
 Select by category and hit "Replace" to generate a random movie, meal, or drink selection. Keep hitting "Replace" until you find a suggestion you like, then move on to another item. After putting together a suitable trio, hit "Save Current Picks" to add them permanently to your Date Night Queue!
 
+
 ---
+
 ## Features
 - **Get Random Suggestions** - *Get random movie, meal and drink suggestions based on genres, categories, or countries.*
 - **Featured Item View** - *Displays the most pertinent information in the featured item view.*

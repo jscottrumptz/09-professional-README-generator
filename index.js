@@ -87,6 +87,33 @@ const promptUser = () => {
   ]);
 };
 
+const installTrigger = readmeData => {
+  readmeData.installTrigger = [];
+  readmeData.installSteps = [];
+  stepNum = 0;
+
+  return inquirer.prompt([
+      {
+          type: 'confirm',
+          name: 'confirmInstall',
+          message: 'Do you have install instructions?',
+          default: true
+        }
+  ])
+  .then(triggerData => {
+    // push data into the array
+    readmeData.installTrigger.push(triggerData);
+    // check if they want to add another step
+    if (triggerData.confirmInstall) {
+        // if so, call the function again passing the array back through the function
+        return promptInstall(readmeData);
+      } else {
+          // return the array
+          return promptUsage(readmeData);
+      }
+  });
+};
+
 const promptInstall = readmeData => {
     // If there is no 'readmeData' array property, create one
     if (!readmeData.installSteps) {
@@ -104,7 +131,7 @@ const promptInstall = readmeData => {
         {
             type: 'input',
             name: 'title',
-            message: `What is the title of step ${stepNum} in the installation of your project? `,
+            message: `What is the title of step ${stepNum} in the installation of your project?`,
             validate: nameInput => {
                 if (nameInput) {
                     return true;
@@ -157,6 +184,8 @@ const promptInstall = readmeData => {
 const promptUsage = readmeData => {
     if (!readmeData.usage) {
         readmeData.usage = [];
+    } else {
+      return readmeData;
     }
 
     return inquirer.prompt([
@@ -517,7 +546,8 @@ const promptTests = readmeData => {
 //Create a function to initialize app
 function init() {
     promptUser()
-    .then(promptInstall)
+    .then(installTrigger)
+    // .then(promptInstall)
     .then(promptUsage)
     .then(promptCredits)
     .then(promptThirdParty)
@@ -549,6 +579,11 @@ const mockData = {
     repoName: 'date-night-generator',
     projTitle: 'Date Night Generator',
     projDescription: 'Get suggestions for great movie, meal and drink combinations and save your favorite groupings to a date night queue.',
+    installTrigger: [
+      {
+        confirmInstall: true
+      }
+    ],
     installSteps: [
       {
         title: 'Open Browser',

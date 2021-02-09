@@ -1,3 +1,14 @@
+let tableOfContentsArr = [
+    '* [Installation](#installation)',
+    '* [Usage](#usage)',
+    '* [Features](#features)',
+    '* [Contributing](#contributing)',
+    '* [Questions](#questions)',
+    '* [Tests](#tests)',
+    '* [Credits](#credits)',
+    '* [License](#license)'
+]
+
 // generate the collaborators in the credits section
 const generateCollabCredits = collabArr => {
     // filter by confirmCredits credits and add collaborator info if needed
@@ -43,10 +54,17 @@ ${tutorialArr.filter(({ confirmTutorial }) => confirmTutorial)
 };
 
 // generate installation steps
-const generateInstall = stepsArr => {
+const generateInstall = (triggerArr, stepsArr) => {
+    if(!triggerArr[0].confirmInstall) {
+        return ``
+    }
+
     let step = 0;
     let isOptional = ``;
-    return `${stepsArr.map(({ title, description, optional }) => {
+    return `---
+
+## Installation
+${stepsArr.map(({ title, description, optional }) => {
                     step++;
                     if (!optional) {
                         isOptional = ``
@@ -62,7 +80,15 @@ ${title}${isOptional} - ${description};
 
 // generate features
 const generateFeatures = featuresArr => {
-    return `${featuresArr.filter(({ confirmFeature }) => confirmFeature)
+    // exit if there are no features
+    if(!featuresArr[0].confirmFeature) {
+        return '';
+    }
+    
+    return `---
+
+## Features
+${featuresArr.filter(({ confirmFeature }) => confirmFeature)
                 .map(({ featureName, featureDescription}) => {
                     
                     return `- **${featureName}** - *${featureDescription}*
@@ -85,10 +111,29 @@ const generateContribute = (usageArr, projArray) => {
     return `${usageArr[0].contributing}`
 };
 
+const tableOfContents = (triggerArr, featuresArr) => {
+    if(!triggerArr[0].confirmInstall) {
+        tableOfContentsArr[0] = '';
+    }
+    if(!featuresArr[0].confirmFeature) {
+        tableOfContentsArr[2] = '';
+    }
+    let toc = ``
+
+    for(i=0; i < tableOfContentsArr.length; i++) {
+        if (tableOfContentsArr[i] != '') {
+            toc = `${toc}
+${tableOfContentsArr[i]}`
+        }
+    }
+
+    return `${toc}`
+}
+
 module.exports = data => {
 
     // destructure data based on property key names and dump the rest in project
-    const { installSteps, usage, collaborators, thirdParty, tutorial, features, tests, ...project } = data;
+    const { installTrigger, installSteps, usage, collaborators, thirdParty, tutorial, features, tests, ...project } = data;
 
     return `# ${project.projTitle}
     
@@ -110,18 +155,9 @@ ${project.projDescription}
 ---
 ## Table of Contents
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [Features](#features)
-* [Contributing](#contributing)
-* [Questions](#questions)
-* [Tests](#tests)
-* [Credits](#credits)
-* [License](#license)
+${tableOfContents(installTrigger, features)}
 
----
-## Installation
-${generateInstall(installSteps)}
+${generateInstall(installTrigger, installSteps)}
 
 ---
 ## Usage 
@@ -131,8 +167,7 @@ ${usage[0].link}
 
 ${usage[0].instructions}
 
----
-## Features
+
 ${generateFeatures(features)}
 
 ---
