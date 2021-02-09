@@ -1,13 +1,103 @@
-let tableOfContentsArr = [
-    '* [Installation](#installation)',
-    '* [Usage](#usage)',
-    '* [Features](#features)',
-    '* [Contributing](#contributing)',
-    '* [Questions](#questions)',
-    '* [Tests](#tests)',
-    '* [Credits](#credits)',
-    '* [License](#license)'
-]
+// Packages needed
+const createLicense = require('../utils/createLicense.js');
+
+// generate the table of contents
+const tableOfContents = (triggerArr, featuresArr, usageArr) => {
+    // array that holds the table of contents
+    let tableOfContentsArr = [
+        '* [Installation](#installation)',
+        '* [Usage](#usage)',
+        '* [Features](#features)',
+        '* [Contributing](#contributing)',
+        '* [Questions](#questions)',
+        '* [Tests](#tests)',
+        '* [Credits](#credits)',
+        '* [License](#license)'
+    ]
+    // table of contents string that will be returned to the markdown generator
+    let toc = ``
+    // if no installation instructions, remove installation from ToC
+    if(!triggerArr[0].confirmInstall) {
+        tableOfContentsArr[0] = '';
+    }
+    // if no featuress, remove features from ToC
+    if(!featuresArr[0].confirmFeature) {
+        tableOfContentsArr[2] = '';
+    }
+    // if no license, remove license from ToC
+    if(usageArr[0].license === 'None') {
+        tableOfContentsArr[7] = '';
+    }
+    // build toc string from the remaining values in the array and return toc
+    for(i=0; i < tableOfContentsArr.length; i++) {
+        if (tableOfContentsArr[i] != '') {
+            toc = `${toc}
+${tableOfContentsArr[i]}`
+        }
+    }
+
+    return `${toc}`
+};
+
+// generate installation steps
+const generateInstall = (triggerArr, stepsArr) => {
+    // if there are no installation steps return an empty string
+    if(!triggerArr[0].confirmInstall) {
+        return ``
+    }
+    // initial values for step number and the optional string
+    let step = 0;
+    let isOptional = ``;
+    // return installation header and installation steps
+    return `---
+
+## Installation
+${stepsArr.map(({ title, description, optional }) => {
+                    step++;
+                    if (!optional) {
+                        isOptional = ``
+                    } else {
+                        isOptional = ` (*Optional*)`;
+                    }
+                    return `#### Step ${step})
+${title}${isOptional} - ${description};
+`;
+                })
+                .join('')}`;
+};
+
+// generate features
+const generateFeatures = featuresArr => {
+    // return an empty string if there are no features
+    if(!featuresArr[0].confirmFeature) {
+        return '';
+    }
+    // return feature header and features
+    return `---
+
+## Features
+${featuresArr.filter(({ confirmFeature }) => confirmFeature)
+                .map(({ featureName, featureDescription}) => {
+                    
+                    return `- **${featureName}** - *${featureDescription}*
+`;
+                })
+                .join('')}`;
+};
+
+// generate the contribution section
+const generateContribute = (usageArr, projArray) => {
+    // if the user selects no contributions
+    if(!usageArr[0].confirmContribute) {
+        return 'This project is not currently seeking contributions';
+    }
+    // if the user leaves blank to signify they want to use the contributor covenant
+    if(usageArr[0].contributing === '') {
+        return `This project operates under the [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/?target=_blank). For more information see the [Contributer Covenant FAQ](https://www.contributor-covenant.org/faq/?target=_blank) or contact [${projArray.userName}](mailto:${projArray.userEmail}?subject=Contribution%20question%20concerning%20${projArray.repoName}) with any additional questions or comments.`;
+    }
+    // otherwise use the users input
+    return `${usageArr[0].contributing}`
+};
 
 // generate the collaborators in the credits section
 const generateCollabCredits = collabArr => {
@@ -53,82 +143,22 @@ ${tutorialArr.filter(({ confirmTutorial }) => confirmTutorial)
                 .join('')}`;
 };
 
-// generate installation steps
-const generateInstall = (triggerArr, stepsArr) => {
-    if(!triggerArr[0].confirmInstall) {
-        return ``
-    }
-
-    let step = 0;
-    let isOptional = ``;
-    return `---
-
-## Installation
-${stepsArr.map(({ title, description, optional }) => {
-                    step++;
-                    if (!optional) {
-                        isOptional = ``
-                    } else {
-                        isOptional = ` (*Optional*)`;
-                    }
-                    return `#### Step ${step})
-${title}${isOptional} - ${description};
-`;
-                })
-                .join('')}`;
-};
-
-// generate features
-const generateFeatures = featuresArr => {
-    // exit if there are no features
-    if(!featuresArr[0].confirmFeature) {
-        return '';
+// generate the license section
+const generateLicense = (usageArr, projArr) => {
+    // if there is no license return an empty string
+    if(usageArr[0].license === 'None') {
+        return ``;
     }
     
+    // if there is a license, create the license file
+    createLicense(usageArr[0].license, projArr.userName)
+
+    // create the badge with a link to the license file
     return `---
 
-## Features
-${featuresArr.filter(({ confirmFeature }) => confirmFeature)
-                .map(({ featureName, featureDescription}) => {
-                    
-                    return `- **${featureName}** - *${featureDescription}*
-`;
-                })
-                .join('')}`;
+## License
+[![GitHub](https://img.shields.io/github/license/${projArr.userGithub}/${projArr.repoName})](https://github.com/${projArr.userGithub}/${projArr.repoName}/blob/main/LICENSE/?target=_blank)`
 };
-
-// generate the contribution section
-const generateContribute = (usageArr, projArray) => {
-    // if the user selects no contributions
-    if(!usageArr[0].confirmContribute) {
-        return 'This project is not currently seeking contributions';
-    }
-    // if the user leaves blank to signify they want to use the contributor covenant
-    if(usageArr[0].contributing === '') {
-        return `This project operates under the [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/?target=_blank). For more information see the [Contributer Covenant FAQ](https://www.contributor-covenant.org/faq/?target=_blank) or contact [${projArray.userName}](mailto:${projArray.userEmail}?subject=Contribution%20question%20concerning%20${projArray.repoName}) with any additional questions or comments.`;
-    }
-    // otherwise use the users input
-    return `${usageArr[0].contributing}`
-};
-
-const tableOfContents = (triggerArr, featuresArr) => {
-    if(!triggerArr[0].confirmInstall) {
-        tableOfContentsArr[0] = '';
-    }
-    if(!featuresArr[0].confirmFeature) {
-        tableOfContentsArr[2] = '';
-    }
-    let toc = ``
-
-    for(i=0; i < tableOfContentsArr.length; i++) {
-        if (tableOfContentsArr[i] != '') {
-            toc = `${toc}
-${tableOfContentsArr[i]}`
-        }
-    }
-
-    return `${toc}`
-}
 
 module.exports = data => {
 
@@ -155,7 +185,7 @@ ${project.projDescription}
 ---
 ## Table of Contents
 
-${tableOfContents(installTrigger, features)}
+${tableOfContents(installTrigger, features, usage)}
 
 ${generateInstall(installTrigger, installSteps)}
 
@@ -200,9 +230,7 @@ ${generateThirdPartyCredits(thirdParty)}
 
 ${generateTutorialCredits(tutorial)}
 
----
-## License
-[![GitHub](https://img.shields.io/github/license/${project.userGithub}/${project.repoName})](https://github.com/${project.userGithub}/${project.repoName}/blob/main/LICENSE/?target=_blank)
+${generateLicense(usage, project)}
 
 ### ©️${new Date().getFullYear()} ${project.userName}
 

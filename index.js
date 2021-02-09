@@ -253,7 +253,7 @@ const promptUsage = readmeData => {
             type: 'list',
             name: 'license',
             message: 'Please select a license type.',
-            choices: ['Apache License 2.0', 'GPL v3.0', 'MIT', 'BSD 2-clause', 'BSD 3-clause', 'Boost', 'CCZ v1.0', 'Eclipse 2.0', 'Affero GPL v3.0', 'GPL v2.0', 'Lesser GPL v2.1', 'Mozilla 2.0', 'Unilicense']
+            choices: ['None', 'Apache License 2.0', 'GPL v3.0', 'MIT', 'BSD 2-clause', 'BSD 3-clause', 'Boost', 'CCZ v1.0', 'Eclipse 2.0', 'Affero GPL v3.0', 'GPL v2.0', 'Lesser GPL v2.1', 'Mozilla 2.0', 'Unilicense']
         },
         {
             type: 'confirm',
@@ -605,7 +605,7 @@ const mockData = {
         confirmScrnSht: true,
         scrnSht: 'https://user-images.githubusercontent.com/74981245/106368421-efdf1a80-630e-11eb-938c-a2f3f6249f80.png',
         instructions: 'Select by category and hit "Replace" to generate a random movie, meal, or drink selection. Keep hitting "Replace" until you find a suggestion you like, then move on to another item. After putting together a suitable trio, hit "Save Current Picks" to add them permanently to your Date Night Queue!',
-        license: 'GPLv3',
+        license: 'Apache License 2.0',
         confirmContribute: true,
         contributing: ''
       }

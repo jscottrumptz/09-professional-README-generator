@@ -103,6 +103,7 @@ Made with ❤️ by [J Scott Rumptz](https://github.com/jscottrumptz/?target=_bl
 
 
 ---
+
 ## License
 [![GitHub](https://img.shields.io/github/license/jscottrumptz/date-night-generator)](https://github.com/jscottrumptz/date-night-generator/blob/main/LICENSE/?target=_blank)
 
